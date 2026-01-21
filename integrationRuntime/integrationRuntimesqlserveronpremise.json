@@ -1,0 +1,6 @@
+{
+	"name": "integrationRuntimesqlserveronpremise",
+	"properties": {
+		"type": "SelfHosted"
+	}
+}
