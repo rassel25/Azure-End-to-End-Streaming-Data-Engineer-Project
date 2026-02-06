@@ -278,10 +278,6 @@
 								"secureInput": false
 							},
 							"userProperties": [],
-							"linkedServiceName": {
-								"referenceName": "SqlServerspotify",
-								"type": "LinkedServiceReference"
-							},
 							"typeProperties": {
 								"scripts": [
 									{
