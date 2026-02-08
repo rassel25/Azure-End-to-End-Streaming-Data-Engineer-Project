@@ -23,7 +23,25 @@ The platform ingests data from **MS SQL Server**, processes it through a **Medal
 - **DevOps Integration**: Full CI/CD implementation using GitHub and Databricks Asset Bundles
 - **Enterprise Governance**: Unity Catalog for security, lineage, and access control
 
-This project is **beginner-friendly** yet **professionally comprehensive**, making it ideal for portfolios, interviews, and hands-on learning.
+---
+
+## 🛠️ Tech Stack
+
+| Component | Technology |
+|-----------|-----------|
+| **Cloud Platform** | Microsoft Azure |
+| **Languages** | Python (PySpark), SQL |
+| **Source Database** | MS SQL Server |
+| **Data Ingestion** | Azure Data Factory (ADF) |
+| **Data Processing** | Azure Databricks (PySpark) |
+| **Storage** | Azure Data Lake Storage Gen2 (ADLS Gen2) |
+| **Streaming** | Spark Structured Streaming & Auto Loader |
+| **Automation** | Logic Apps |
+| **Data Modeling** | Star Schema, SCD Type 2 |
+| **Orchestration** | Delta Live Tables (DLT) & ADF |
+| **Governance** | Unity Catalog |
+| **Version Control** | GitHub |
+| **CI/CD** | Databricks Asset Bundles |
 
 ---
 
@@ -52,20 +70,13 @@ This project is **beginner-friendly** yet **professionally comprehensive**, maki
          │                 │                 │
     Azure Data       Azure Databricks   Delta Live Tables
      Factory         Spark Streaming         (DLT)
-                                              │
-                                              ▼
-                                    ┌──────────────────┐
-                                    │ Databricks SQL   │
-                                    │    Warehouse     │
-                                    │  (Analytics)     │
-                                    └──────────────────┘
+
 ```
 
 ### Data Flow Explanation
 
 **Source Layer**
-- **MS SQL Server** hosting a simulated Spotify dataset (Artists, Users, Tracks, Plays)
-- Optional static files from GitHub for enrichment
+- **MS SQL Server** hosting a simulated Spotify dataset
 
 **Bronze Layer (Raw Data)**
 - Raw data ingestion via **Azure Data Factory (ADF)**
@@ -85,40 +96,17 @@ This project is **beginner-friendly** yet **professionally comprehensive**, maki
 - Built with **Delta Live Tables (DLT)** for declarative ETL
 - Analytics-ready datasets optimized for BI consumption
 
-**Governance & Security**
+**DevOps & Governance**
 - **Unity Catalog** for centralized access control, data lineage, and metadata management
 - Fine-grained permissions and secure data sharing
-
-**Consumption Layer**
-- **Databricks SQL Warehouse** for interactive analytics and dashboards
-- Ready for integration with Power BI, Tableau, or other BI tools
-
----
-
-## 🛠️ Tech Stack
-
-| Component | Technology |
-|-----------|-----------|
-| **Cloud Platform** | Microsoft Azure |
-| **Source Database** | MS SQL Server |
-| **Data Ingestion** | Azure Data Factory (ADF) |
-| **Data Processing** | Azure Databricks (PySpark) |
-| **Storage** | Azure Data Lake Storage Gen2 (ADLS Gen2) |
-| **Streaming** | Spark Structured Streaming & Auto Loader |
-| **Table Format** | Delta Lake |
-| **Data Modeling** | Star Schema, SCD Type 2 |
-| **Orchestration** | Delta Live Tables (DLT) & ADF |
-| **Governance** | Unity Catalog |
-| **Version Control** | GitHub |
-| **CI/CD** | Databricks Asset Bundles |
-| **Languages** | Python (PySpark), SQL |
+- **CI/CD Integration** with GitHub workflows
 
 ---
 
 ## 🚀 Key Features
 
 ### Data Ingestion
-- ✅ **Incremental Loading** with watermarking for efficient data extraction
+- ✅ **Incremental Loading** with JSON Metadata approach for efficient data extraction
 - ✅ **Backfill Capability** for historical data reprocessing
 - ✅ **Dynamic Pipelines** in ADF with parameterization for reusability
 - ✅ **Self-hosted Integration Runtime** support for hybrid cloud scenarios
@@ -131,7 +119,7 @@ This project is **beginner-friendly** yet **professionally comprehensive**, maki
 
 ### Data Modeling
 - ✅ **Star Schema Design** with fact and dimension tables
-- ✅ **SCD Type 2 Implementation** for complete historical tracking
+- ✅ **SCD Type 2 Implementation** using Delta Live Tables for complete historical tracking
 - ✅ **Surrogate Keys** and natural key management
 - ✅ **Referential Integrity** enforcement
 
@@ -152,11 +140,11 @@ spotify-azure-data-engineering/
 ├── README.md
 ├── LICENSE
 │
-├── source_scripts/
-│   ├── create_source_tables.sql       # DDL for source database
-│   └── insert_sample_data.sql         # Sample Spotify data generation
+├── source_dataset/
+│   ├── initial_dataset.sql             # DDL for source database and initial data generation
+│   └── incremental_dataset.sql         # incremental data generation
 │
-├── adf_pipelines/
+├── pipeline/
 │   ├── pipelines/
 │   │   ├── incremental_ingestion.json # Incremental load pipeline
 │   │   ├── backfill_pipeline.json     # Historical backfill pipeline
@@ -218,23 +206,16 @@ spotify-azure-data-engineering/
 5. **Model** → Delta Live Tables build Star Schema with SCD Type 2 in Gold layer
 6. **Serve** → Curated data exposed via Databricks SQL Warehouse for analytics
 
-### Sample Use Case: New User Registration
+### Azure Data Factory Pipeline
 
-```
-New User in SQL Server
-       ↓
-ADF detects change (incremental load)
-       ↓
-User data lands in Bronze (raw Parquet)
-       ↓
-Auto Loader picks up new file
-       ↓
-Silver notebook cleanses and validates
-       ↓
-Gold DLT pipeline creates/updates dim_users with SCD Type 2
-       ↓
-Analysts query updated dimension via SQL Warehouse
-```
+<img width="1034" height="282" alt="adf" src="https://github.com/user-attachments/assets/9a65b541-9786-41ab-ae0b-d6168f21ad46" />
+
+<img width="1088" height="364" alt="adf2" src="https://github.com/user-attachments/assets/5a1a02a7-0d7b-4321-a83a-221e081bdf85" />
+
+<img width="920" height="237" alt="adf3" src="https://github.com/user-attachments/assets/0e787a72-de30-4334-b811-1e6320e89cf0" />
+
+<img width="885" height="193" alt="adf4" src="https://github.com/user-attachments/assets/3ca4553b-b8de-43e6-aae2-e8ccef894c14" />
+
 
 ---
 
