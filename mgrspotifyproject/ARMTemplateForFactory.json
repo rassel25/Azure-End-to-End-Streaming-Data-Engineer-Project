@@ -45,7 +45,7 @@
 	},
 	"resources": [
 		{
-			"name": "[concat(parameters('factoryName'), '/incremental_loop')]",
+			"name": "[concat(parameters('factoryName'), '/final_incremental_loop')]",
 			"type": "Microsoft.DataFactory/factories/pipelines",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -505,7 +505,7 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/spotify_project_incremental_pipeline')]",
+			"name": "[concat(parameters('factoryName'), '/initial_incremental_pipeline')]",
 			"type": "Microsoft.DataFactory/factories/pipelines",
 			"apiVersion": "2018-06-01",
 			"properties": {
