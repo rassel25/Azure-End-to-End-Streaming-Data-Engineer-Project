@@ -1,0 +1,39 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "mgrspotifyproject"
+		},
+		"AzureDatabricks1_accessToken": {
+			"value": ""
+		},
+		"SqlServerspotify_password": {
+			"value": ""
+		},
+		"spotify_data_lake_accountKey": {
+			"value": ""
+		},
+		"AzureDatabricks1_properties_typeProperties_existingClusterId": {
+			"value": "0208-101826-9jb3y4u8"
+		},
+		"SqlServerspotify_properties_typeProperties_server": {
+			"value": "DESKTOP-SVRQCC2"
+		},
+		"SqlServerspotify_properties_typeProperties_database": {
+			"value": "azure_spotify_db_project"
+		},
+		"SqlServerspotify_properties_typeProperties_userName": {
+			"value": "adf"
+		},
+		"spotify_data_lake_properties_typeProperties_url": {
+			"value": "https://mgrspotifyproject.dfs.core.windows.net/"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}
