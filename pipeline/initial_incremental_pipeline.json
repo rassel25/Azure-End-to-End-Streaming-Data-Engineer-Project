@@ -1,5 +1,5 @@
 {
-	"name": "spotify_project_incremental_pipeline",
+	"name": "initial_incremental_pipeline",
 	"properties": {
 		"activities": [
 			{
