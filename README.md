@@ -47,6 +47,8 @@ The platform ingests data from **MS SQL Server**, processes it through a **Medal
 
 ## 🏗️ Architecture Overview
 
+<img width="1301" height="784" alt="Screenshot 2026-02-09 172909" src="https://github.com/user-attachments/assets/4b928f4e-3d7a-43c1-ae59-8cc2f8aee138" />
+
 ```
 ┌─────────────────┐
 │   MS SQL Server │ (Source)
